@@ -12,4 +12,12 @@ INSERT INTO PERSON ( LAST_NAME, FIRST_NAME, MOBILE, BIRTHDAY, HOME_ID)VALUES ('S
 INSERT INTO PERSON ( LAST_NAME, FIRST_NAME, MOBILE, BIRTHDAY, HOME_ID)VALUES ('Smith', 'Jane', '393-6181', '1987-12-06', 3);
 INSERT INTO PERSON ( LAST_NAME, FIRST_NAME, MOBILE, BIRTHDAY, HOME_ID)VALUES ('Brown', 'Doug', '466-6241', '1954-12-07', 3);
 
+INSERT INTO MOVIES (title,runtime,genre,imdb_score,rating) VALUES('Howard the Duck',110, 'Sci-Fi',4.6,'PG');
+INSERT INTO MOVIES (title,runtime,genre,imdb_score,rating) VALUES('Lavalantula',83, 'HORROR',4.7,'TV-14');
+INSERT INTO MOVIES (title,runtime,genre,imdb_score,rating) VALUES('Starship Troopers',129, 'Sci-Fi',7.2,'PG-13');
+INSERT INTO MOVIES (title,runtime,genre,imdb_score,rating) VALUES('Waltz With Bashir',90, 'Documentary',8.0,'R');
+INSERT INTO MOVIES (title,runtime,genre,imdb_score,rating) VALUES('Spaceballs',96, 'COMEDY',7.1,'PG');
+INSERT INTO MOVIES (title,runtime,genre,imdb_score,rating) VALUES('Monsters Inc.',92, 'Animation',8.1,'G');
+INSERT INTO MOVIES (title,runtime,genre,imdb_score,rating) VALUES('Back To Future',96, 'Sci-Fi',7.1,'PG');
+INSERT INTO MOVIES (title,runtime,genre,imdb_score,rating) VALUES('Despicable Me 4',102, 'COMEDY',6.2,'PG');
 
