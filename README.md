@@ -62,10 +62,10 @@ annotations (`@ID`, `@Entity` etc.) in your Person class.
 
 Support the following operations:
 
-- Add a `Person` to the database
-- - Remove a person from the database
-- ## //Done//Update an existing `Person` in the database
-- ## remove a list of people from the database
+- //Done// Add a `Person` to the database
+- -//Done// Remove a person from the database
+- ## //Done// Update an existing `Person` in the database
+- ##  remove a list of people from the database
 -  ## //Done // find all people with a particular first name, last name, or birthdate 
 -  ## //Done // Find a single person by ID  
 - ## _Generate a map of surnames to lists of people with that surname_

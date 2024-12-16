@@ -114,7 +114,7 @@ public class PersonService {
         return allPeople;
     }
 
-public Person update(Person person){
+public Person update(String mobileNum, int ID){
 
     Person updatePerson = new Person();
 
@@ -123,8 +123,8 @@ public Person update(Person person){
         String query = "Update Person set MOBILE = ? where ID = ?";
         PreparedStatement stat = connection.prepareStatement(query);
 
-        stat.setString(1,"9824724709");
-        stat.setInt(2,4);
+        stat.setString(1,mobileNum);
+        stat.setInt(2,ID);
 
         int rowsUpdated = stat.executeUpdate();
         if(rowsUpdated >0){
@@ -141,6 +141,68 @@ public Person update(Person person){
         }
     }
     return null;
+}
+
+
+public void delete(int ID){
+        Person P1 = new Person();
+
+        Connection connect = ConnectionFactory.getConnection();
+    try {
+        String delQuery = "delete from Person where ID = ?";
+        PreparedStatement S1 = connect.prepareStatement(delQuery);
+        S1.setInt(1,ID);
+        S1.executeUpdate();
+
+    }catch(SQLException e){
+        e.printStackTrace();
+    }finally{
+        try {
+            if(connect != null)
+                connect.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+}
+/**CREATE TABLE PERSON (
+ ID INT NOT NULL AUTO_INCREMENT,
+ FIRST_NAME VARCHAR2(255) NOT NULL DEFAULT '',
+ LAST_NAME VARCHAR2(255) NOT NULL DEFAULT '',
+ MOBILE VARCHAR2(20) NOT NULL DEFAULT '',
+ BIRTHDAY DATE DEFAULT NULL,
+ HOME_ID SMALLINT DEFAULT NULL,
+ PRIMARY KEY (ID));
+
+ */
+
+public boolean insert(Person person){
+        Person P2 = new Person();
+        Connection Con = ConnectionFactory.getConnection();
+
+        try{
+            String query = "insert into Person column(FIRST_NAME,LAST_NAME,MOBILE,BIRTHDAY,HOME_ID) values(?, ?, ?, ?, ?)";
+            PreparedStatement S1 = Con.prepareStatement(query);
+
+            S1.setString(1,P2.getFirstName());
+            S1.setString(2,P2.getLastName());
+            S1.setDate(3,P2.getBirthday());
+            S1.setInt(4,P2.getHomeID());
+
+           return  S1.execute();
+
+        }catch(SQLException e){
+            e.printStackTrace();;
+        }finally{
+            try {
+                if (Con != null)
+                    Con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return false;
 }
 
 
