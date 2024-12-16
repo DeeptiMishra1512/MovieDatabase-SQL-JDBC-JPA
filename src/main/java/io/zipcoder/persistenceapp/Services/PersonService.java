@@ -177,19 +177,24 @@ public void delete(int ID){
  */
 
 public boolean insert(Person person){
-        Person P2 = new Person();
+
         Connection Con = ConnectionFactory.getConnection();
 
         try{
-            String query = "insert into Person column(FIRST_NAME,LAST_NAME,MOBILE,BIRTHDAY,HOME_ID) values(?, ?, ?, ?, ?)";
+            String query = "insert into Person(FIRST_NAME,LAST_NAME,MOBILE,BIRTHDAY,HOME_ID) values(?, ?, ?, ?, ?)";
             PreparedStatement S1 = Con.prepareStatement(query);
 
-            S1.setString(1,P2.getFirstName());
-            S1.setString(2,P2.getLastName());
-            S1.setDate(3,P2.getBirthday());
-            S1.setInt(4,P2.getHomeID());
+            S1.setString(1,person.getFirstName());
+            S1.setString(2,person.getLastName());
+            S1.setString(3,person.getMobileNum());
+            S1.setDate(4,person.getBirthday());
+            S1.setInt(5,person.getHomeID());
 
-           return  S1.execute();
+           int result =  S1.executeUpdate();
+           S1.execute();
+           if(result> 0) {
+               return true;
+           }
 
         }catch(SQLException e){
             e.printStackTrace();;
