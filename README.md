@@ -63,12 +63,12 @@ annotations (`@ID`, `@Entity` etc.) in your Person class.
 Support the following operations:
 
 - Add a `Person` to the database
-- Update an existing `Person` in the database
-- Remove a person from the database
-- remove a list of people from the database
-- find all people with a particular first name, last name, or birthdate
-- Find a single person by ID  //Done
-- Generate a map of surnames to lists of people with that surname
+- - Remove a person from the database
+- ## //Done//Update an existing `Person` in the database
+- ## remove a list of people from the database
+-  ## //Done // find all people with a particular first name, last name, or birthdate 
+-  ## //Done // Find a single person by ID  
+- ## _Generate a map of surnames to lists of people with that surname_
 - Generate a map of first names to the number of times they occur.
 
 Create the following REST endpoints to interact with the application. You can use postman to confirm 

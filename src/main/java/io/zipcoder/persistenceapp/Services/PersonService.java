@@ -48,12 +48,17 @@ public class PersonService {
 
     public Person findById(int id) {
 
+        /**Get connection using object of Connection class and method getConnection()*/
         Connection connection = ConnectionFactory.getConnection();
         try {
+
+            /** Build QUERY to be used in prepare statement */
             String query = "SELECT * FROM PERSON WHERE id = ?";
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setInt(1, id);
 
+
+            /** Prepare Result Set */
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 return extractPersonDetailsFromResultSet(rs);
@@ -74,11 +79,13 @@ public class PersonService {
     public List<Person> findAllByName(String Fname, String Lname){
 
         List<Person> allPeople = new ArrayList<>();
+
+        /**Get connection using object of Connection class and method getConnection()*/
         Connection connection = ConnectionFactory.getConnection();
 
         try
         {
-            //set the query to be used in prepare statement.
+            /**set the query to be used in prepare statement. */
             String query = "Select * from Person where FIRST_NAME = ? AND LAST_NAME = ?";
             PreparedStatement statement = connection.prepareStatement(query);
 
@@ -86,6 +93,7 @@ public class PersonService {
             statement.setString(1,Fname);
             statement.setString(2,Lname);
 
+        /** Set the result set to print the select statement */
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()){
@@ -106,7 +114,34 @@ public class PersonService {
         return allPeople;
     }
 
+public Person update(Person person){
 
+    Person updatePerson = new Person();
+
+    Connection connection = ConnectionFactory.getConnection();
+    try {
+        String query = "Update Person set MOBILE = ? where ID = ?";
+        PreparedStatement stat = connection.prepareStatement(query);
+
+        stat.setString(1,"9824724709");
+        stat.setInt(2,4);
+
+        int rowsUpdated = stat.executeUpdate();
+        if(rowsUpdated >0){
+            return updatePerson;
+        }
+
+    }catch(SQLException e){
+        e.printStackTrace();
+    }finally{
+        try{
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    return null;
+}
 
 
 }
